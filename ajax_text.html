@@ -29,7 +29,7 @@
 
       var req = new XMLHttpRequest();
       req.overrideMimeType('text/plain; charset=x-user-defined');
-      req.open('GET', 'chunks/' + chunks_to_load + 'chunks/chunk' + (num+1) + '.txt', true);
+      req.open('GET', '4text_chunks/chunk' + (num+1) + '.txt', true);
       req.send(null);
 
       // fire off an event when this is done loading
@@ -46,7 +46,7 @@
 
     function reassembleImage() {
       var outputString = outputArray.join('');
-      document.getElementById("image").innerHTML = outputString;
+      document.querySelector("body").innerHTML = outputString;
     }
 
     // run a loop to load all chunks asynchronously
@@ -55,4 +55,8 @@
     }
 
   </script>
+
+  <body>
+    
+  </body>
 </html>
