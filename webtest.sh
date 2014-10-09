@@ -3,12 +3,12 @@ if [ ! -f output.csv ]; then
     rm "output_$2_chunks.csv"
 fi
 
-phantomas "http://192.168.1.2:8081/$2_chunks.html"  --modules=httpTrafficCompleted -R csv > tmp.csv
+phantomas "http://192.168.1.1/$2_chunks.html"  --modules=httpTrafficCompleted -R csv > tmp.csv
 echo "Finished 1..."
 
 for i in $(seq 2 $1)
 do
-  phantomas "http://192.168.1.2:8081/$2_chunks.html"  --modules=httpTrafficCompleted -R csv:no-header >> tmp.csv
+  phantomas "http://192.168.1.1/$2_chunks.html"  --modules=httpTrafficCompleted -R csv:no-header >> tmp.csv
   echo "Finished $i..."
 done
 
